@@ -1,0 +1,102 @@
+---
+title: "Documentation_Amplitude_Modulation"
+author: "Ravi M.B"
+date: "July 6, 2018"
+output: html_document
+---
+
+# Introduction
+
+The following document is written with an intention to make the user understand the process of *Amplitude Modulation*. In communication systems including both Analog and Digital, a message carrying signal has to be transmitted over a long distance for reliable communication, *Amplitude Modulation* is continous wave modulation under Analog category
+
+# Modulation
+
+*Modulation* is the process of strengthening the message signal with a carrier signal to transmit the signal over long distances. Here in this shiny app, an Modulation with respect to *"Amplitude"* is performed. A message signal could be mathematically represented as a sine wave
+
+# Amplitude Modulation:
+
+A message signal or in technlogical terms referred also as *"Baseband Signal"*
+consists of the following components
+
+a.) Amplitude measured in Volts
+b.) Frequency measured in HZ or frequency is interpreted as reciprocal of time in     seconds
+c.) Phase measured in degrees
+
+# Reprsentation
+
+Message is represented by 
+
+**msg** = **(a * sin(omega * t))**
+
+here omega is equal to the product of twice the pi and message frequency,
+**omega** = **( 2 * 3.14 * f)**.
+
+Carrier signal aids in transmitting the message signal, it is represnted as
+
+**carrier** = **(a * sin(omega * t))**
+
+here omega is equal to the product of twice the pi and carrier frequency 
+**( 2 * 3.14 * f)**, for experimental purposes *carrier frequency* is set as 1MHz or 1000000 Hz.
+
+Now the *Amplitude Modulation* could be represented as
+am_wave <- (( 1 + msg)* carrier)
+
+
+# R Code
+
+Required Packages:
+ggplot2 - library(ggplot2)
+shiny - library(shiny)
+
+## Inputs: 
+
+t = Time in seconds
+a = Amplitude in Volts
+f = Frequency in Hertz
+
+## Outputs:
+
+An Amplitude Modulated wave based on the inputs time - t, amplitude - a, frequency -f.
+
+## Sample Message Signal used in the app
+
+The following R code plots a message or a baseband signal , with amplitude of 5 volts, frequency of 1KHz or 1000 Hz, time period for a minute i.e, t = 60 seconds
+
+```{r Message Signal, echo=TRUE}
+library(ggplot2)
+t <- seq(0,60,1)
+f <- 1000
+a <- 5
+omega <- 2 * 3.14 * f
+msg_signal <- (a * sin(omega * t))
+qplot(t, msg_signal, geom = "line",xlab = "time in seconds",
+      ylab = "Amplitude in Volts", colour = I("green"))
+```
+
+## Variables:
+
+"msg" is message signal,
+"carrier" is carrier signal,
+car_f is carrier frequency, here in the app is set to 1 MHz, amplitude is set to 5 Volts for carrier signal.
+
+# Future Work
+
+At Present, this app plots a Amplitude Modulated Wave for a message signal with
+time period varying between 1 sec to 60 sec,
+amplitude for message signal is between 1 to 5 volts,
+frequency for message signal is between 100 Hz to 1000 Hz,
+This App performs Modulation with respect to Amplitude.
+
+Future work includes calculation of power to transmit the message signal relevant with hardware requirements and Demodulation of the modulated wave.
+
+Also Modulation with respect to frequency and phase will also be performed.
+
+
+
+
+
+
+
+
+
+
