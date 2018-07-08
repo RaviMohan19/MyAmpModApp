@@ -1,0 +1,68 @@
+---
+title: 'Reproducible Pitch: Simulation App for Amplitude Modulation'
+author: "Ravi M.B"
+date: "July 7, 2018"
+output: ioslides_presentation
+---
+
+## Modulation:
+
+Modulation is the process of strengthening the message signal with a carrier signal to transmit the signal over long distances. Here in this shiny app, an Modulation with respect to **Amplitude** is performed. A message signal could be mathematically represented as a sine wave. A message signal or in technlogical terms referred also as "Baseband Signal"
+consists of the following components
+
+User Inputs:
+
+- Amplitude measured in Volts(**a**)
+- Frequency measured in HZ(**f**)
+- Time in seconds(**t**)
+- Scripts ui.R and server.R code for the Amplitude Modulation app
+is availble at [R code](https://github.com/RaviMohan19/MyAmpModApp)
+
+## R Expressions for server based on the inputs
+
+The following R code are expressions evaluated by the server side of the app 
+
+```{r inputs, echo=TRUE}
+    f <- 1000
+    a <- 5
+    omega <- 2 * 3.14 * f
+    t <- seq(0, 60, 1)
+    msg <- (a * sin(omega * t))
+    # carrier wave added
+    car_f <- 1000000 # carrier frequency
+    carrier <- (a * sin(2 * 3.14 * 1000000 * t)) # carrier signal
+    am_wave <- ((1 + msg) * carrier)
+    
+```
+
+## Server side simulation
+
+Message simulation by server based on the maximum value of the inputs 
+
+```{r msg_plot, echo=FALSE}
+library(ggplot2)
+qplot(
+      t,
+      msg,
+      geom = "line",
+      xlab = "time in seconds",
+      ylab = "Amplitude in volts",
+      colour = I("green")
+    )
+
+```
+
+## Server side simulation Amplitude Modulated Wave
+
+Server simulates the amplitude modulated wave based on the maximum value of inputs
+
+```{r amp_mod_wave, echo=FALSE}
+qplot(
+      t,
+      am_wave,
+      geom = "line",
+      xlab = "time in seconds",
+      ylab = "Amplitude in volts",
+      colour = I("blue")
+    )
+```
