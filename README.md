@@ -42,8 +42,8 @@ Now the Amplitude Modulation is represented as
 Required Packages for the app to run
 - ggplot2 : library(ggplot2)
 - shiny: library(shiny)
-- for installing shiny use the following script *install.packages("shiny, dependencies = TRUE")*
-- for installing ggplot2 use the following script *install.packages("ggplot2, dependencies = TRUE")*
+- for installing shiny use the following script *install.packages("shiny", dependencies = TRUE)*
+- for installing ggplot2 use the following script *install.packages("ggplot2", dependencies = TRUE)*
 
 Download the **ui.R** and **server.R** locally to your system with the above mentioned packages being installed
 
