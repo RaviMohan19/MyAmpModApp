@@ -34,7 +34,7 @@ here omega is equal to the product of twice the pi and carrier frequency
 **2 * 3.14 * f**, for experimental purposes carrier frequency is set as 1MHz or 1000000 Hz.
 
 Now the Amplitude Modulation is represented as
-**am_wave** <- **(( 1 + msg)* carrier)**
+**am_wave** <- **((1 + msg) * carrier)**
 
 
 ## Executing the App locally:
