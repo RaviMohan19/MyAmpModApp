@@ -5,7 +5,7 @@
 # Find out more about building applications with Shiny here:
 # 
 #    http://shiny.rstudio.com/
-#
+#    
 
 library(shiny)
 library(ggplot2)
@@ -43,17 +43,36 @@ shinyUI(fluidPage(
     
     # Show a plot of the generated distribution
     mainPanel(
-      tabsetPanel(type = "tabs",
-                  tabPanel("Documentation",textOutput("Document")),
-                  tabPanel("Plot",plotOutput("msg"),
-                           h5("Selected Time in seconds:"),
-                           textOutput("time"),
-                           h5("Selected Amplitude in Volts:"),
-                           textOutput("Amplitude"),
-                           h5("Selected Frequency in Hz:"),
-                           textOutput("frequency")
-                           
-                  )
+      tabsetPanel(
+        type = "tabs",
+        tabPanel("Documentation", h2("Introduction:"),
+                 textOutput("Document"),
+                 h2("Inputs Used:"),
+                 textOutput("inp"),
+                 h2("WebApp running:"),
+                 textOutput("note"),
+                 h2("Required packages:"),
+                 textOutput("run_pkg"),
+                 h2("Server Output:"),
+                 textOutput("soutput")),
+                 
+        
+        tabPanel(
+          "Plot",
+          h4(
+            "Amplitude modulated wave desired inputs slide time, amplitude and frequency"
+          ),
+          plotOutput("msg"),
+          h5("Selected Time in seconds:"),
+          textOutput("time"),
+          h5("Selected Amplitude in Volts:"),
+          textOutput("Amplitude"),
+          h5("Selected Frequency in Hz:"),
+          textOutput("frequency")
+        ),
+        tabPanel("Code", h3("GitHub"),
+                 textOutput("Location")
+        )
                   
                   
       )
