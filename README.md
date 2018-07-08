@@ -14,10 +14,10 @@ A message signal or in technlogical terms referred also as "Baseband Signal"
 consists of the following components
 
 - Amplitude measured in Volts
-- Frequency measured in HZ or frequency is interpreted as reciprocal of time in     seconds
+- Frequency measured in HZ or frequency is interpreted as reciprocal of time in seconds
 - Phase measured in degrees
 
-4. Representation
+## Expressions for R Representation
 
 Message is represented by 
 
