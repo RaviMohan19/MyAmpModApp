@@ -50,9 +50,9 @@ Download the **ui.R** and **server.R** locally to your system with the above men
 
 ## Inputs: 
 
-t = Time in seconds
-a = Amplitude in Volts
-f = Frequency in Hertz
+- t = Time in seconds
+- a = Amplitude in Volts
+- f = Frequency in Hertz
 
 ## Outputs:
 
